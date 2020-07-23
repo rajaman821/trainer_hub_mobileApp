@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      AddSkill
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="sendDetails()">
+    <ion-item-group>
+
+      <ion-item>
+        <ion-label position="floating">Education</ion-label>
+        <ion-select [(ngModel)]="education" formControlName="education">
+          <ion-select-option *ngFor="let abc of arr" [value]="abc.educationId">{{abc.educationDescription}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="education!= undefined">
+        <ion-label position="floating">Class</ion-label>
+        <ion-select [(ngModel)]="classDescription" formControlName="classDescription">
+          <ion-select-option *ngFor="let st of arr1" [value]="st.Id">{{st.classDescription}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+      <ion-item *ngIf="classDescription!= undefined">
+        <ion-label position="floating">Subjects</ion-label>
+        <ion-select [(ngModel)]="subjects" formControlName="subjects">
+          <ion-select-option *ngFor="let st of arr2" [value]="st.classSubjectId">{{st.subjectDescription}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div padding>
+        <ion-button type="submit" fill="clear">Submit</ion-button>
+      </div>
+    </ion-item-group>
+  </form>
+
+</ion-content>

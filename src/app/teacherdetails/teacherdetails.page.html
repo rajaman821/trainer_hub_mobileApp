@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Teacher Details</ion-title>
+    <ion-label slot="end" (click)="dismiss()">Close</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-header>
+      <h2>Teacher Details</h2>
+    </ion-header>
+    <ion-card-content>
+      <b>Name: </b>{{teacherArr.detail?.fullName}}<br>
+      <b>gender: </b>{{teacherArr.detail?.gender}}<br>
+      <b>Phone: </b>{{teacherArr.detail?.phone}}<br>
+      <b>State: </b>{{teacherArr.detail?.state}}<br>
+
+      <div *ngFor="let obj of teacherArr?.skill; let i = index;" class="cardbody">
+        <div class="outer_skill">
+          <div class="skill"> SKILL SET : {{i+1}}</div>
+          <b>Education: </b>{{obj?.educationDescription}}<br>
+          <b>Class: </b>{{obj?.classDescription}}<br>
+          <b>Subjects: </b>{{obj?.subjectDescription}}<br>
+        </div>
+      </div>
+      <ion-chip (click)="callTeacher(teacherArr.detail.phone)" color="primary">
+        <ion-icon name="call"></ion-icon>
+        <ion-label>Contact</ion-label>
+      </ion-chip>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <!--  <input type="file" (change)="jhb($event)"> -->
+
+    <div>
+      <img src="{{base64Image}}" class="image">
+      <ion-button (click)="presentActionSheet()" fill="clear" style="color:#840000;border:1px solid #840000;" >Upload</ion-button>
+    </div>
+    <form [formGroup]="teacherForm">
+
+      <ion-item class="form-group">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" maxlength="40" class="form-control" formControlName="fullname" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">Gender</ion-label>
+        <ion-input type="text" maxlength="40" class="form-control" formControlName="gender" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">Mobile</ion-label>
+        <ion-input type="number" class="form-control" formControlName="phone" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">E-Mail</ion-label>
+        <ion-input type="text" class="form-control" formControlName="email" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">State</ion-label>
+        <ion-input type="text" maxlength="40" class="form-control" formControlName="state" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">City</ion-label>
+        <ion-input type="text" maxlength="40" class="form-control" formControlName="city" readonly></ion-input>
+      </ion-item>
+
+      <ion-item class="form-group">
+        <ion-label position="floating">Radius(Km)</ion-label>
+        <ion-input type="text" maxlength="40" class="form-control" formControlName="radius" readonly></ion-input>
+      </ion-item>
+
+      <div style="padding:5%;font-weight:200;">
+        <span *ngIf="userArr?.TypeTutionId==0">Tuition Type: Both(Home and Coaching)</span>
+        <span *ngIf="userArr?.TypeTutionId==1">Tuition Type :Home</span>
+        <span *ngIf="userArr?.TypeTutionId==2">Tuition Type :Coaching</span>
+      </div>
+
+      <div >
+        <ion-button expand="full" fill="clear" size="default" type="submit" clear (click)="editInfo()">Edit
+            <ion-icon name="create" slot="end"></ion-icon>
+        </ion-button>
+        
+      </div>
+      <div >
+        <ion-button expand="full" fill="clear" size="default" type="submit" clear (click)="editPass()">Change
+          Password
+        </ion-button>
+      </div>
+    </form>
+  </ion-item-group>
+</ion-content>

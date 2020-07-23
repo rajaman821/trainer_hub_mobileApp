@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Find a tutor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+
+    <form [formGroup]="skillForm" (ngSubmit)="submitSkill(skillForm.value)">
+
+      <ion-item class="form-group">
+        <ion-label position="floating">Education</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="education" formControlName="education" checked>
+          <ion-select-option *ngFor="let det of educationList" [value]="det.educationId">{{det.educationDescription}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf=" education != undefined" class="form-group">
+        <ion-label position="floating">Class</ion-label>
+        <ion-select placeholder="Select One" formControlName="class" [(ngModel)]="class">
+          <ion-select-option *ngFor="let det of classList" [value]="det.Id">{{det.classDescription}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf=" education != undefined && class != undefined" class="form-group">
+        <ion-label position="floating">Subjects</ion-label>
+        <ion-select placeholder="Select One" formControlName="subjects" [(ngModel)]="subjects" multiple="true">
+          <ion-select-option *ngFor="let det of subjectsList" [value]="det.classSubjectId">{{det.subjectDescription}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf=" subjects != undefined " class="form-group">
+        <ion-label position="floating">Type of Tuition</ion-label>
+        <ion-select placeholder="Select One" [(ngModel)]="type_of_tution" formControlName="type_of_tution">
+          <ion-select-option value="0">Both</ion-select-option>
+          <ion-select-option value="1">Home Tuition</ion-select-option>
+          <ion-select-option value="2">Willing to travel</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf=" type_of_tution != undefined " class="form-group">
+        Radius(km) <ion-range min="0" max="20" color="secondary" pin="true" formControlName="radius">
+          <ion-label slot="start">0</ion-label>
+          <ion-label slot="end">20</ion-label>
+        </ion-range>
+      </ion-item>
+
+      <div padding item-right>
+        <ion-button type="submit" expand="full" size="default" fill="clear" block>Submit</ion-button>
+      </div>
+    </form>
+
+  </ion-item-group>
+</ion-content>

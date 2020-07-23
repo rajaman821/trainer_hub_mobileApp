@@ -1,0 +1,44 @@
+
+  <ion-header class="toolbar-container"> 
+    <ion-toolbar >
+      <ion-title>Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding >
+
+  <ion-item-group >
+    <form [formGroup]="loginForm" (ngSubmit)="loginUserCall(loginForm.value)">
+
+
+      <ion-item class="form-group">
+        <ion-input type="text" class="form-control" formControlName="email" placeholder="Email"></ion-input>
+      </ion-item>
+
+      <span class="sp" *ngIf="loginForm.controls.email.hasError('required') && loginForm.controls.email.touched">E-mail
+        is required!</span>
+
+      <ion-item class="form-group">
+        <ion-input type="text" *ngIf="showPasswordText" class="form-control" formControlName="password" placeholder="Password"></ion-input>
+        <ion-input type="password" *ngIf="!showPasswordText" class="form-control" formControlName="password" placeholder="Password"></ion-input>
+        <ion-button icon-only fill="clear" type="button" item-right (click)="showPasswordText=!showPasswordText">
+          <ion-icon *ngIf="showPasswordText" class="eye" name="eye"></ion-icon>
+          <ion-icon *ngIf="!showPasswordText" class="eye" name="eye-off"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <span class="sp" *ngIf="loginForm.controls.password.hasError('required') && loginForm.controls.password.touched">Password
+        is required!</span>
+
+      <div padding>
+        <ion-button type="submit" size="default" color="danger" slot="start"  class="lgnbtn" >Login
+        </ion-button>
+        <ion-button float-right (click)="forgetPassword()" fill="clear" size="small" class="frgtpss">Forgot Password?
+        </ion-button>
+      </div>
+    </form>
+    <div padding slot="bottom">
+      <ion-button expand="block" fill="clear" (click)="signUp()" class="crtacc">Create New Account</ion-button>
+    </div>
+  </ion-item-group>
+</ion-content>

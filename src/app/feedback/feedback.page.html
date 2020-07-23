@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pleas Enter Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-group>
+    <ion-item>
+      <ion-textarea placeholder="Please Enter your feedback here" [(ngModel)]="feedbackText"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="submitNoFeedback()">Close</ion-button>
+      <ion-button (click)="submitFeedback(feedbackText)" [disabled]="!feedbackText">Send</ion-button>
+    </ion-item>
+  </ion-item-group>
+</ion-content>

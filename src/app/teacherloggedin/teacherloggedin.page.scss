@@ -1,0 +1,51 @@
+
+ion-toolbar{
+    --ion-background-color:#840000 !important;
+    color:#ffffff;
+    
+}
+
+ion-menu-toggle ion-icon{
+    color:white
+}
+ion-button{
+    border:1px solid #840000;
+    background-color:#ffffff;
+    color:#840000;
+    margin-left:10px;
+}
+ion-card{
+    border:1px solid #840000;  
+    padding:10px;
+    border-radius:0px;
+}
+ion-chip{
+    background-color:#ffffff;
+    border:1px solid #840000;
+    border-radius:2px;
+    margin-left:15px;
+}
+ion-label{
+    color:#840000;
+}
+ion-icon{
+    color:#840000;
+}
+ion-content p{
+    margin-left:10px;
+}
+ion-card-header{
+    margin-top:-10px;
+}
+ion-card-header ion-card-title,ion-card-header ion-card-subtitle{
+    color:tblack;
+}
+ion-card-content span{
+    font-size:18px;
+    font-weight:100 !important; 
+    color:black;
+}
+ion-card-content .skill{
+    font-size:15px;
+    color:gray;
+}

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Closed Tickets</h1>
+  <ion-card *ngFor="let obj of information; let i = index">
+    <ion-header class="card-header">
+      <h2>Ticket {{i+1}}</h2>
+    </ion-header>
+    <ion-card-content class="card-content-left">
+      <b>Education: </b>{{obj.educationDescription}}<br>
+      <b>Class: </b>{{obj.classDescription}}<br>
+      <b>Subjects: </b>{{obj.subjectDescription}}<br>
+      <b>Radius: </b>{{obj.TotalDistance}}<br>
+      <div *ngIf="obj.TicketStatus == 0">
+        <b>Ticket Status: </b>Closed<br>
+      </div>
+      <div *ngIf="obj.TicketStatus == 1">
+        <b>Ticket Status: </b>Active<br>
+      </div>
+      <div *ngIf="obj.TypeOfTution == 0">
+        <b>Type of tuition: </b>Both<br>
+      </div>
+      <div *ngIf="obj.TypeOfTution == 1">
+        <b>Type of tuition: </b>Home Tuition<br>
+      </div>
+      <div *ngIf="obj.TypeOfTution == 2">
+        <b>Type of tuition: </b>Tutor's Home<br>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

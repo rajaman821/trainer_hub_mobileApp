@@ -1,0 +1,33 @@
+
+
+ion-input[type=text]::placeholder{
+    padding-left:0px;
+    color:#840000 !important;
+}
+
+
+ion-toolbar{
+    --ion-background-color: 	#840000 !important;
+    color:#ffffff;
+    
+}
+ion-title{
+    --color:white;
+}
+ion-label{
+    color:#840000 !important;
+}
+.sp{
+    font-size:12px;
+    padding-left:10px;
+}
+ion-icon{
+    color:#840000;
+}
+ion-select{
+    font-size:13px;
+}
+ion-button{
+    color:#840000;
+    border:1px solid #840000;
+}

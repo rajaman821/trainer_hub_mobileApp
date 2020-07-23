@@ -1,0 +1,44 @@
+.lgnbtn{
+    margin-left:-15px;
+    box-shadow:0 0 1px 0px rgba(0,0,0,0.3);
+    border-radius:4px;
+    --ion-color-contrast: #ffffff !important;
+    --ion-color-base: #840000 !important;
+   
+}
+ion-input[type=text]::placeholder{
+    padding-left:0px;
+    color:#840000 !important;
+}
+
+.frgtpss{
+    font-size:12px;
+    padding:0px;
+    margin-right:-13px;
+    --color:#840000 !important;
+    width:70%;
+    margin-top:9px;
+}
+.form-control{
+    margin-bottom:0px;
+    color:#840000;
+    opacity:1;
+}
+.eye{
+    color:#840000;
+    background-color:transparent !important;
+}
+.crtacc{
+    color:#840000 !important;
+}
+.sp{
+    font-size:12px;
+    padding-left:10px;
+}
+ion-toolbar{
+    --ion-background-color:#840000 !important;
+    
+}
+ion-title{
+    --color:white;
+}

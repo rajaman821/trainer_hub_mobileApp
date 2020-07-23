@@ -1,0 +1,117 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title>Create your Account</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-label>Type</ion-label>
+  <ion-select placeholder="Select One" [(ngModel)]="type">
+    <ion-select-option value="student">Student</ion-select-option>
+    <ion-select-option value="teacher">Teacher</ion-select-option>
+  </ion-select>
+
+  <div *ngIf="type != undefined">
+    <ion-item-group>
+      <form [formGroup]="signupForm" (ngSubmit)="registerUser(type)">
+
+
+        <ion-item class="form-group">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" maxlength="40" class="form-control" formControlName="fullname"></ion-input>
+        </ion-item>
+
+        <span class="sp" *ngIf="signupForm.controls.fullname.hasError('pattern')">
+          <ion-icon name="alert"></ion-icon>
+          Please Enter Alphabets Only
+        </span>
+
+        <ion-item class="form-group">
+          <ion-label position="floating">Gender</ion-label>
+          <ion-select placeholder="Select One" formControlName="gender">
+            <ion-select-option value="female">Female</ion-select-option>
+            <ion-select-option value="male">Male</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <span class="sp" *ngIf="signupForm.controls.gender.hasError('required') && signupForm.controls.gender.touched">
+          <ion-icon name="alert"></ion-icon>
+          Please select a gender
+        </span>
+
+        <ion-item class="form-group">
+          <ion-label position="floating">Mobile</ion-label>
+          <ion-input type="number" class="form-control" formControlName="phone"></ion-input>
+        </ion-item>
+
+
+        <span class="sp" *ngIf="signupForm.controls.phone.hasError('pattern')">
+          <ion-icon name="alert"></ion-icon>
+          Please Enter Valid Number
+        </span>
+
+        <ion-item class="form-group">
+
+          <ion-label position="floating">State</ion-label>
+          <ion-select placeholder="Select One" formControlName="state">
+            <ion-select-option *ngFor="let det of statesList" [value]="state">{{det.stateName}}</ion-select-option>
+          </ion-select>
+
+        </ion-item>
+
+        <ion-item class="form-group">
+          <ion-label position="floating">E-Mail</ion-label>
+          <ion-input type="text" class="form-control" formControlName="email"></ion-input>
+        </ion-item>
+
+        <span class="sp" *ngIf="signupForm.controls.email.hasError('pattern')">
+          <ion-icon name="alert"></ion-icon>
+          Invalid Email
+        </span>
+
+        <ion-item class="form-group">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" class="form-control" formControlName="password"></ion-input>
+        </ion-item>
+
+        <span class="sp" *ngIf="signupForm.controls.password.hasError('pattern')">
+          <ion-icon name="alert"></ion-icon>
+          Password Must Be 8 Digit, 1 Special case ,Upper case and Lower case
+        </span>
+
+        <span class="sp" *ngIf="signupForm.controls.password.hasError('whitespace')">
+          <ion-icon name="alert"></ion-icon><br>
+          Password contains white space
+        </span>
+
+        <ion-item class="form-group">
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" class="form-control" formControlName="confirmpassword"></ion-input>
+        </ion-item>
+
+        <span class="sp" *ngIf="signupForm.controls.confirmpassword.errors?.MatchPassword">
+          <ion-icon name="warning"></ion-icon>Please Confirm Your Password!
+          Password does Not Match
+        </span>
+
+        <div padding item-right>
+          <ion-button type="submit" size="default" color="primary" expand="block" class="sgnbtn">Sign up
+          </ion-button>
+        </div>
+      </form>
+    </ion-item-group>
+  </div>
+
+  <div padding>
+    <ion-button (click)="loginUser()" expand="block" fill="clear" size="default" class="leu" expand="block">Login
+      Existing User
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar  style="--ion-background-color:#840000;">
+          <ion-buttons slot="start">
+            <ion-menu-toggle>
+              <ion-button >
+                <ion-icon slot="icon-only" name="menu"  style="color:#ffffff;"></ion-icon>
+              </ion-button>
+            </ion-menu-toggle>
+          </ion-buttons>
+          <ion-title  style="color:#ffffff;">Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content >
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item (click)="navigation(p.url,p.roles)">
+
+              <ion-icon slot="start" [name]="p.icon"  style="color:#840000;"></ion-icon>
+              <ion-label   style="color:#840000;cursor: pointer;">
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dashboard
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    <font face="verdana" color="black">You can add upto 5 skills!</font>
+  </p>
+  <ion-button (click)="addskil()" fill="clear">Add Skill</ion-button>
+  <ion-card *ngFor="let skill of getSkills; let i =index">
+    <ion-card-header>
+
+      <ion-card-title>Skill: {{i+1}}</ion-card-title>
+      <ion-card-subtitle>{{skill.educationDescription}}</ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <span> Class : <span class="skill">{{skill.classDescription}}</span></span><br>
+      <span>Subject : <span class="skill">{{skill.subjectDescription}}</span></span><br>
+    </ion-card-content>
+
+    <ion-chip (click)="deleteSkill(skill.teacherSkillId)" fill="clear">
+      <ion-label >Delete</ion-label>
+      <ion-icon name="close" ></ion-icon>
+    </ion-chip>
+  </ion-card>
+
+</ion-content>

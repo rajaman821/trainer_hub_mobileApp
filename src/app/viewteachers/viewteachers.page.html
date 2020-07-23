@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Available Teachers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor="let obj of userData; let i = index">
+    <ion-header>
+      <h2>Matches found: {{i+1}}</h2>
+    </ion-header>
+    <ion-card-content *ngIf=" userData != undefined">
+      <b>Name: </b>{{obj.fullName}}<br>
+      <b>Gender: </b>{{obj.gender}}<br>
+      <ion-chip (click)="getTeacherDetails(obj.teacherId)" color="primary">
+          <ion-label>View Teacher Information</ion-label>
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </ion-chip>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

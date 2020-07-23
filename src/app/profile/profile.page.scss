@@ -1,0 +1,36 @@
+.image {
+    height: 50vw; 
+    width: 50vw; 
+   border: 2px solid #ffff;
+   border-radius: 50%;
+   box-shadow: 0 0 5px gray;
+   display: inline-block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.circle-pic{
+   width:50px;
+   height:50px;
+   -webkit-border-radius: 50%;
+   border-radius: 100%;
+}
+ion-toolbar{
+    --ion-background-color:#840000 !important;
+    color:#ffffff;
+    
+}
+form ion-button{
+    background-color:#ffffff;
+    border:1px solid #840000;
+    color:#840000 !important;
+}
+form ion-button ion-icon{
+    color:#840000;
+}
+ion-item ion-label{
+    color:#840000;
+}
+ion-item ion-input{
+    font-size:13px; 
+}

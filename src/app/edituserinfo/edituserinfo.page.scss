@@ -1,0 +1,23 @@
+
+ion-toolbar{
+    --ion-background-color:#840000 !important;
+    color:#ffffff;
+    
+}
+form ion-button{
+    background-color:#ffffff !important;
+    border:1px solid #840000;
+    color:#840000 !important;
+}
+ion-item-group div{
+    background-color:#ffffff;
+}
+ ion-button ion-icon{
+    color:#840000;
+}
+ion-item ion-label{
+    color:#840000;
+}
+ion-item ion-input{
+    font-size:13px; 
+}
